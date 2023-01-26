@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Suites
+{% endblock %}
+
+{% block body %}
+  <h1>Suites</h1>
+  <ul>
+    {% for suite in suites %}
+      <li>
+        <span>
+          {{ suite.name }}
+        </span>
+        <a href="/suites/{{ suite.id }}">See suite</a>
+        <a href="/institutions/{{ suite.institution.id }}">See institution</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Suite
+{% endblock %}
+
+{% block body %}
+  <a href="/suites">See all suites</a>
+  <h1>{{ suite.name }}</h1>
+  <span>{{ suite.name }}</span>
+  <h2>Institution</h2>
+  <span>
+    {{ suite.institution.name }}
+    {{ suite.institution.city }}
+    <a href="/institutions/{{ suite.institution.id }}">See institution</a>
+  </span>
+{% endblock %}

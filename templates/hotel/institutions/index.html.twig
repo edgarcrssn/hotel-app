@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Institutions
+{% endblock %}
+
+{% block body %}
+  <h1>Institutions</h1>
+  <ul>
+    {% for institution in institutions %}
+      <li>
+        <span>
+          {{ institution.name }}
+          {{ institution.city }}
+        </span>
+        <a href="/institutions/{{ institution.id }}">See institution</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
