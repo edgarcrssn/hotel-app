@@ -1,17 +1,32 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout/index.html.twig' %}
 
 {% block title %}
   Suite
 {% endblock %}
 
-{% block body %}
-  <a href="/suites">See all suites</a>
-  <h1>{{ suite.name }}</h1>
-  <span>{{ suite.name }}</span>
-  <h2>Institution</h2>
-  <span>
-    {{ suite.institution.name }}
-    {{ suite.institution.city }}
-    <a href="/institutions/{{ suite.institution.id }}">See institution</a>
-  </span>
+{% block content %}
+  <section>
+    <h1>{{ suite.name }}</h1>
+    <ul>
+      <li>
+        <span>Nom :</span>
+        {{ suite.name }}
+      </li>
+      <li>
+        <span>Description :</span>
+        {{ suite.description }}
+      </li>
+      <li>
+        <span>Prix :</span>
+        {{ suite.price }} euros/mois
+      </li>
+      <li>
+        <span>Institution :</span>
+        <span>
+          {{ suite.institution.name }}
+          <a href="/institutions/{{ suite.institution.id }}">See institution</a>
+        </span>
+      </li>
+    </ul>
+  </section>
 {% endblock %}

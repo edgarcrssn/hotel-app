@@ -1,23 +1,41 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout/index.html.twig' %}
 
 {% block title %}
   Institutions
 {% endblock %}
 
-{% block body %}
-  <a href="/institutions">See all institutions</a>
-  <h1>{{ institution.name }}</h1>
-  <span>
-    {{ institution.name }}
-    {{ institution.city }}
-  </span>
-  <h2>Suites</h2>
-  <ul>
-    {% for suite in suites %}
+{% block content %}
+  <section>
+    <h1>{{ institution.name }}</h1>
+    <ul>
       <li>
-        <span>{{ suite.name }}</span>
-        <a href="/suites/{{ suite.id }}">See suite</a>
+        <span>Nom :</span>
+        {{ institution.name }}
       </li>
-    {% endfor %}
-  </ul>
+      <li>
+        <span>Description :</span>
+        {{ institution.description }}
+      </li>
+      <li>
+        <span>Ville :</span>
+        {{ institution.city }}
+      </li>
+      <li>
+        <span>Adresse :</span>
+        {{ institution.address }}
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Suites</h3>
+    <ul>
+      {% for suite in suites %}
+        <li>
+          {{ suite.name }}
+          <a href="/suites/{{ suite.id }}">See suite</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
 {% endblock %}

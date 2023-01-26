@@ -14,24 +14,24 @@ class AppFixtures extends Fixture
     {
         $faker = Faker\Factory::create('fr_FR');
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             $institution = new Institution();
             $institution->setName($faker->name());
-            $institution->setDescription($faker->text(200));
-            $institution->setCity($faker->city());
-            $institution->setAddress($faker->address());
-        }
+            $institution->setDescription('description');
+            $institution->setCity('city');
+            $institution->setAddress('address');
+            $manager->persist($institution);
 
-        for ($i = 0; $i < 10; $i++) {
-            $suite = new Suite();
-            $suite->setName($faker->name());
-            $suite->setDescription($faker->text(100));
-            $suite->setPrice($faker->numberBetween($min = 5, $max = 15));
-            $suite->setCoverImage($faker->image());
+            for ($j = 0; $j < 5; $j++) {
+                $suite = new Suite();
+                $suite->setName($faker->name());
+                $suite->setDescription('description');
+                $suite->setPrice($faker->numberBetween($min = 5, $max = 15));
+                $suite->setCoverImage('/');
+                $suite->setInstitution($institution);
+                $manager->persist($suite);
+            }
         }
-
-        $manager->persist($institution);
-        $manager->persist($suite);
 
         $manager->flush();
     }
