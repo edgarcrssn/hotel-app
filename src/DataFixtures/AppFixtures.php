@@ -22,7 +22,7 @@ class AppFixtures extends Fixture
             $institution->setAddress('address');
             $manager->persist($institution);
 
-            for ($j = 0; $j < 5; $j++) {
+            for ($j = 0; $j < 4; $j++) {
                 $suite = new Suite();
                 $suite->setName($faker->name());
                 $suite->setDescription('description');
